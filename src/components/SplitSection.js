@@ -1,7 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+
+export const SplitStyled = styled.section`
+  b {
+    color: #8a6800;
+  }
+`;
 
 const SplitSection = ({ id, primarySlot, secondarySlot, reverseOrder }) => (
-  <section id={id} className="py-20">
+  <SplitStyled id={id} className="py-20">
     <div className="container mx-auto px-16 items-center flex flex-col lg:flex-row">
       <div className="lg:w-1/2">{primarySlot}</div>
       <div
@@ -10,7 +17,7 @@ const SplitSection = ({ id, primarySlot, secondarySlot, reverseOrder }) => (
         {secondarySlot}
       </div>
     </div>
-  </section>
+  </SplitStyled>
 );
 
 export default SplitSection;
