@@ -26,7 +26,7 @@ export default () => (
         procura, o Mr Money tem a solução perfeita pra você.
       </p>
       <p className="mt-8">
-        <Button size="xl">Get Started Now</Button>
+        {/* <Button size="xl">Get Started Now</Button> */}
       </p>
     </SectionTitle>
 

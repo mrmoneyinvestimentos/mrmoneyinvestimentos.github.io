@@ -193,9 +193,9 @@ const Header = () => (
           <li>
             <a href="#about">Forex</a>
           </li>
-          <li>
+          {/* <li>
             <Button className="text-sm">Start Free Trial</Button>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
