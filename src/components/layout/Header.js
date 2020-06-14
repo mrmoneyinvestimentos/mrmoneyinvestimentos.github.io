@@ -178,7 +178,7 @@ export const HeaderSyled = styled.header`
 const Header = () => (
   <HeaderSyled className="sticky top-0 bg-white shadow">
     <div className="container">
-      <a href="" className="logo">
+      <a href="/" className="logo">
         <LogoIcon />
       </a>
       <div className="menu-links">
