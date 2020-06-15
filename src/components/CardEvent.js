@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from './Button';
 
 export const MyStyle = styled.div`
+  margin-bottom: 60px;
   .event-img {
     width: 300px;
     margin: 0 auto;
