@@ -25,9 +25,7 @@ export default () => (
         poupança e obter seus lucros em todo cenário, seja ele em queda ou alta? Se é isso que
         procura, o Mr Money tem a solução perfeita pra você.
       </p>
-      <p className="mt-8">
-        {/* <Button size="xl">Get Started Now</Button> */}
-      </p>
+      <p className="mt-8">{/* <Button size="xl">Get Started Now</Button> */}</p>
     </SectionTitle>
 
     <ParallaxBackground height={300} background={bgParallaxMiddle} />
@@ -62,7 +60,7 @@ export default () => (
         title="Reunião de apresentação"
         date="19 de jun. 19:00"
         description="Apresentação via aplicativo ZOOM"
-        btnLink="www.google.com.br"
+        btnLink="https://chat.whatsapp.com/BEOAjm6DzF16vAGeOXpqSP"
         btnText="RSVP"
       />
     </SectionTitle>

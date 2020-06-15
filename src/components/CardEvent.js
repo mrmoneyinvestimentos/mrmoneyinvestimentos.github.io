@@ -28,7 +28,11 @@ function CardEvent({ imgEvent, title, date, description, btnLink, btnText }) {
       <h3 className="title">{title}</h3>
       <p className="date">{date}</p>
       <p className="description">{description}</p>
-      {btnLink ? <Button className="text-sm mt-16">{btnText}</Button> : null}
+      {btnLink ? (
+        <Button className="text-sm mt-16" btnLink={btnLink}>
+          {btnText}
+        </Button>
+      ) : null}
     </MyStyle>
   );
 }

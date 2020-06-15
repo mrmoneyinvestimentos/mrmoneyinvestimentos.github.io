@@ -34,7 +34,7 @@ export const FooterStyled = styled.footer`
 const Footer = () => (
   <FooterStyled className="container py-16 px-3 text-gray-800">
     <div className="social">
-      <a href="">
+      <a href="https://www.facebook.com/Mr-Money-Investimentos-106932487711890/?ref=bookmarks">
         <svg className="icon icon-facebook2">
           <use xlinkHref="#icon-facebook2">
             <symbol id="icon-facebook2" viewBox="0 0 32 32">
@@ -44,7 +44,7 @@ const Footer = () => (
         </svg>
       </a>
 
-      <a href="">
+      <a href="https://www.instagram.com/mrmoneyinvestimentos/">
         <svg className="icon icon-instagram">
           <use xlinkHref="#icon-instagram">
             <symbol id="icon-instagram" viewBox="0 0 32 32">
