@@ -46,9 +46,6 @@ export default () => {
   }
 `);
 
-console.log('query')
-console.log(queryEvents);
-
   return(
     <Layout>
       <ParallaxBackground height={500} background={bgParallaxTop} />
