@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const SplitStyled = styled.section`
+  background-color: #b78a00;
   b {
     color: #8a6800;
   }
