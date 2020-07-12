@@ -3,7 +3,7 @@ import 'firebase/auth'; // importing the auth module as an example
 
 // Firebase web config
 const config = {
-  apiKey: process.env.MR_API_FIREBASE,
+  apiKey: 'AIzaSyAokGrynkAoiH_M-83Ey2IeJQCcuQsnEfg',
   authDomain: 'trade-c4c5a.firebaseapp.com',
   databaseURL: 'https://trade-c4c5a.firebaseio.com',
   projectId: process.env.MR_PROJECT_ID,
