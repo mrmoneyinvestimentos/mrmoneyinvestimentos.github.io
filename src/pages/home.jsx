@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { graphql, useStaticQuery, navigate } from 'gatsby';
-import firebase from 'gatsby-plugin-firebase';
 import Jitsi from 'react-jitsi';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { Form, Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
@@ -10,6 +8,8 @@ import styled from 'styled-components';
 import Layout from '../components/layout/Layout';
 import HeaderLogged from '../components/layout/HeaderLogged';
 import LoaderMeeting from '../components/LoaderMeeting';
+
+import useFirebase from '../hooks/useFirebase';
 
 const StyledJitsi = styled(Jitsi)`
   .premeeting-screen .content .copy-meeting {
@@ -41,14 +41,24 @@ const StyledContent = styled(Col)`
 `;
 
 const Home = () => {
-  const [user, loading, error] = useAuthState(firebase.auth());
+  const firebase = useFirebase();
+
   const [onCall, setOnCall] = useState(false);
   const [joinedUser, setJoined] = useState(false);
   const [userLeft, setUserLeft] = useState(false);
+  const [user, setUser] = useState();
 
-  if (!user) {
-    navigate('/login');
-    return null;
+  useEffect(() => {
+    if (!firebase) return;
+    checkUser();
+  }, [])
+
+  const checkUser = () => {
+    const user = firebase.auth().currentUser;
+    if (!user) {
+      navigate('/login');
+      return null;
+    }
   }
 
   const queryMeetingInfo = useStaticQuery(graphql`

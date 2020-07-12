@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import firebase from 'gatsby-plugin-firebase';
 import LogoIcon from '../../svg/LogoIcon';
 
-export const HeaderSyled = styled.header`
+import useFirebase from '../../hooks/useFirebase';
+
+export const HeaderStyled = styled.header`
   background-color: #000000;
   z-index: 99;
 
@@ -162,14 +162,14 @@ export const HeaderSyled = styled.header`
 `;
 
 const HeaderLogged = () => {
-  const [user, loading, error] = useAuthState(firebase.auth());
+  const firebase = useFirebase();
 
   const logout = () => {
     firebase.auth().signOut();
   };
 
   return (
-    <HeaderSyled className="sticky top-0 shadow">
+    <HeaderStyled className="sticky top-0 shadow">
       <div className="container">
         <a href="/" className="logo">
           <LogoIcon />
@@ -191,7 +191,7 @@ const HeaderLogged = () => {
           </ul>
         </div>
       </div>
-    </HeaderSyled>
+    </HeaderStyled>
   );
 };
 

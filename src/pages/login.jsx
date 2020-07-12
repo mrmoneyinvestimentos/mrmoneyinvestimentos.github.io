@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react';
-import firebase from "gatsby-plugin-firebase"
+import React, { useState, useContext, useEffect } from 'react';
 import { Form, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { navigate } from 'gatsby'
 
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
+
+import useFirebase from '../hooks/useFirebase';
 
 const LabelStyled = styled(Form.Label)`
   color: #424242;
@@ -38,26 +38,28 @@ const ContainerLogin = styled(Container)`
 `;
 
 const Login = () => {
+  const firebase = useFirebase();
+
   const [formValues, setFormValues] = useState({});
-  const [user, loading, error] = useAuthState(firebase.auth());
+
+  useEffect(() => {
+    if (!firebase) return;
+    checkUser();
+  }, [])
+
+  const checkUser = () => {
+    const user = firebase.auth().currentUser;
+    if (!user) {
+      navigate('/login');
+      return null;
+    }
+  }
 
   const handleSubmit = async e => {
     e.preventDefault();
     console.log(formValues)
     firebase.auth().signInWithEmailAndPassword(formValues.email, formValues.password);
     navigate('/home');
-  }
-
-  if (loading) {
-    return (
-      <div>
-        <p>Carregando...</p>
-      </div>
-    );
-  }
-  if (user) {
-    navigate('/home');
-    return null;
   }
 
   return (

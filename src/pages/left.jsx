@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
-import firebase from 'gatsby-plugin-firebase';
 import Jitsi from 'react-jitsi';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
@@ -24,8 +22,6 @@ const StyledContent = styled(Col)`
 `;
 
 const Left = () => {
-  const [user, loading, error] = useAuthState(firebase.auth());
-
   // if (!user) {
   //   navigate('/login');
   //   return null;
