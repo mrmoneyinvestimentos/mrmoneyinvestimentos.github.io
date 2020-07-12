@@ -175,11 +175,11 @@ const Header = () => (
         </label>
         <ul className="menu">
           <li>
-            <a href="#work">Início</a>
+            <Link to="/">Início</Link>
           </li>
-          <li>
+          {/* <li>
             <a href="#about">Forex</a>
-          </li>
+          </li> */}
           <li>
             <Link to="/login">Login</Link>
           </li>
