@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 import styled from 'styled-components';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import firebase from 'gatsby-plugin-firebase';
 import LogoIcon from '../../svg/LogoIcon';
-import Button from '../Button';
 
 export const HeaderSyled = styled.header`
   background-color: #000000;
@@ -14,7 +13,7 @@ export const HeaderSyled = styled.header`
     flex-flow: row nowrap;
     justify-content: space-between;
     @media screen and (min-width: 768px) {
-      padding: 0 24px 0 0;
+      padding: 0 !important;
     }
     @media screen and (min-width: 1024px) {
       display: flex;
@@ -162,34 +161,38 @@ export const HeaderSyled = styled.header`
   }
 `;
 
-const Header = () => (
-  <HeaderSyled className="sticky top-0 shadow">
-    <div className="container">
-      <a href="/" className="logo">
-        <LogoIcon />
-      </a>
-      <div className="menu-links">
-        <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label className="menu-icon" htmlFor="menu-btn">
-          <span className="navicon" />
-        </label>
-        <ul className="menu">
-          <li>
-            <Link to="/">Início</Link>
-          </li>
-          {/* <li>
-            <a href="#about">Forex</a>
-          </li> */}
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          {/* <li>
+const HeaderLogged = () => {
+  const [user, loading, error] = useAuthState(firebase.auth());
+
+  const logout = () => {
+    firebase.auth().signOut();
+  };
+
+  return (
+    <HeaderSyled className="sticky top-0 shadow">
+      <div className="container">
+        <a href="/" className="logo">
+          <LogoIcon />
+        </a>
+        <div className="menu-links">
+          <input className="menu-btn" type="checkbox" id="menu-btn" />
+          <label className="menu-icon" htmlFor="menu-btn">
+            <span className="navicon" />
+          </label>
+          <ul className="menu">
+            <li>
+              <a href="" onClick={logout}>
+                Logout
+              </a>
+            </li>
+            {/* <li>
             <Button className="text-sm">Start Free Trial</Button>
           </li> */}
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
-  </HeaderSyled>
-);
+    </HeaderSyled>
+  );
+};
 
-export default Header;
+export default HeaderLogged;
