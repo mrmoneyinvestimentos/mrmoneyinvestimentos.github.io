@@ -38,6 +38,21 @@ const StyledContent = styled(Col)`
     margin: 24px auto;
     width: 100%;
   }
+
+  #react-jitsi-frame {
+    display: block!important;
+    height: 100vh!important;
+    border: 0px none;
+    left: -90px;
+    position: relative;
+    width: 100vw!important;
+  }
+
+  #react-jitsi-container .copy-meeting {
+    display: none!important;
+    z-index: -1!important;
+    opacity: 0!important;
+  }
 `;
 
 const Home = () => {
