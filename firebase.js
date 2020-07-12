@@ -3,14 +3,14 @@ import 'firebase/auth'; // importing the auth module as an example
 
 // Firebase web config
 const config = {
-  apiKey: 'AIzaSyAokGrynkAoiH_M-83Ey2IeJQCcuQsnEfg',
+  apiKey: process.env.MR_API_FIREBASE,
   authDomain: 'trade-c4c5a.firebaseapp.com',
   databaseURL: 'https://trade-c4c5a.firebaseio.com',
-  projectId: 'trade-c4c5a',
+  projectId: process.env.MR_PROJECT_ID,
   storageBucket: 'trade-c4c5a.appspot.com',
   messagingSenderId: '806793345969',
-  appId: '1:806793345969:web:a1a34d6c4f8073f277db90',
-  measurementId: 'G-CS8P5K2NGR'
+  appId: process.env.MR_APP_ID,
+  measurementId: process.env.MR_MEASURE_ID
 };
 
 let instance = null;
