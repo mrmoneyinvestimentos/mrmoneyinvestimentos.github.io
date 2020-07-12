@@ -33,6 +33,26 @@ const StyledContent = styled(Col)`
     margin-bottom: 24px;
   }
 
+  .meeting-title {
+    background: #070a0d;
+    box-shadow: 0 1px 13px 6px #424242;
+    color: white;
+    font-size: 20px;
+    left: 0;
+    padding: 15px;
+    position: absolute;
+    text-align: center;
+    top: 51vh;
+    width: 100vw;
+    z-index: 999;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 2.5rem;
+      left: -90px;
+      top: 44vh;
+    }
+  }
+
   button {
     max-width: 350px;
     margin: 24px auto;
@@ -41,11 +61,14 @@ const StyledContent = styled(Col)`
 
   #react-jitsi-frame {
     display: block!important;
-    height: 100vh!important;
+    height: calc(100vh - 70px)!important;
     border: 0px none;
-    left: -90px;
+    left: -15px;
     position: relative;
     width: 100vw!important;
+    @media screen and (min-width: 1024px) {
+      left: -90px;
+    }
   }
 
   #react-jitsi-container .copy-meeting {
@@ -93,16 +116,12 @@ const Home = () => {
     }
   `);
 
-  console.log(queryMeetingInfo);
-
   const handleAPI = JitsiMeetAPI => {
     setUserLeft(false);
     JitsiMeetAPI.addEventListener('videoConferenceJoined', () => {
-      console.log('ENTREI!!!!');
       setJoined(true);
     });
     JitsiMeetAPI.addEventListener('readyToClose', () => {
-      console.log('Sairr!!!!');
       setUserLeft(true);
       navigate('/left');
     });
@@ -136,7 +155,8 @@ const Home = () => {
                         'hangup',
                         'profile',
                         'chat',
-                        'videoquality'
+                        'videoquality',
+                        'raisehand'
                       ],
                       disableInviteFunctions: true
                     }}
