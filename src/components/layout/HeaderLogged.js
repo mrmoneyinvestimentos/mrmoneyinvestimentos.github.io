@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { navigate, Link } from 'gatsby';
 import LogoIcon from '../../svg/LogoIcon';
 
 import useFirebase from '../../hooks/useFirebase';
@@ -166,6 +167,7 @@ const HeaderLogged = () => {
 
   const logout = () => {
     firebase.auth().signOut();
+    navigate('/');
   };
 
   return (
@@ -181,9 +183,9 @@ const HeaderLogged = () => {
           </label>
           <ul className="menu">
             <li>
-              <a href="" onClick={logout}>
+              <Link to="/" onClick={logout}>
                 Logout
-              </a>
+              </Link>
             </li>
             {/* <li>
             <Button className="text-sm">Start Free Trial</Button>
