@@ -75,7 +75,7 @@
       z-index: 1;
       background: #421E2F;
       width: 100%;
-			max-width: 320px;    
+			max-width: 320px;
 			border-radius: 0 0 0 12px;
       overflow: hidden;
     }
@@ -94,8 +94,8 @@
 }
 .container {
 	margin: 0 auto;
-	max-width: 1240px;
-	padding: 0 20px;
+	// max-width: 1240px;
+	// padding: 0 20px;
 }
 .site-logo {
   font-weight: bold;
@@ -111,8 +111,13 @@
   }
 }
 .home-banner {
-	padding: 60px 0;
-	align-items: center;
+  align-items: center;
+  background-image: url('../img/bg-blog.jpg');
+  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  padding: 60px 0;
+  height: 80vh;
 	.title {
 		font-size: 48px;
 		line-height: 48px;
@@ -141,6 +146,9 @@
 	}
 }
 .home-posts {
+    max-width: 1240px;
+    margin: 0 auto;
+	padding: 0 20px;
 	.grids {
 		padding-bottom: 30px;
 	}
@@ -164,7 +172,7 @@
 		margin: 0 0 3px;
 		font-size: 20px;
 		font-weight: 600;
-		a { 
+		a {
 			color: var(--post-link-color);
 		}
 	}
@@ -252,7 +260,7 @@ article img {
 		border-radius: 12px;
 	}
 }
-// Buttons 
+// Buttons
 .button {
 	--padding: 20px;
 	--margin: 20px;
@@ -301,7 +309,8 @@ article img {
 .contact-page,
 .thanks-page,
 .not-found-page {
-	padding: 50px 20px;
+  padding: 50px 20px;
+  	max-width: 1240px;
 	.wrapper {
 		max-width: 768px;
 		margin: 0 auto;

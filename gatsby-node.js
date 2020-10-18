@@ -1,11 +1,19 @@
 const path = require("path")
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const {
+  createFilePath
+} = require(`gatsby-source-filesystem`)
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
+exports.createPages = async ({
+  actions,
+  graphql,
+  reporter
+}) => {
+  const {
+    createPage
+  } = actions
 
   //const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const blogList = path.resolve(`./src/templates/blog-list.js`)
+  const blogList = path.resolve(`./src/templates/blog-list.jsx`)
 
   const result = await graphql(`
     {
@@ -44,7 +52,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: post.node.frontmatter.slug,
       component: path.resolve(
-        `src/templates/${String(post.node.frontmatter.template)}.js`
+        `src/templates/${String(post.node.frontmatter.template)}.jsx`
       ),
       // additional data can be passed via context
       context: {
@@ -64,7 +72,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const postsPerPage = 9
   const numPages = Math.ceil(blogPostsCount / postsPerPage)
 
-  Array.from({ length: numPages }).forEach((_, i) => {
+  Array.from({
+    length: numPages
+  }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blog` : `/blog/${i + 1}`,
       component: blogList,
@@ -79,10 +89,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
 }
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({
+  node,
+  getNode,
+  actions
+}) => {
+  const {
+    createNodeField
+  } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: `pages`
+    })
     createNodeField({
       node,
       name: `slug`,
