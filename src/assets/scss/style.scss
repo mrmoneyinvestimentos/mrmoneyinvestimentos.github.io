@@ -16,7 +16,7 @@
   align-items: center;
   position: relative;
   background: var(--header-bg);
-  padding: 30px 20px;
+  padding: 20px;
 }
 .site-navigation {
   ul {
@@ -101,10 +101,16 @@
   font-weight: bold;
   a {
     color: #fff;
-		text-decoration: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 		&:hover {
 			color: #fff;
-		}
+    }
+    img {
+      width: 40px;
+    }
   }
   @media (max-width: $breakpoint-lg) {
     font-size: 20px;
@@ -147,8 +153,8 @@
 }
 .home-posts {
     max-width: 1240px;
-    margin: 0 auto;
-	padding: 0 20px;
+    margin: 40px auto 0;
+	  padding: 0 20px;
 	.grids {
 		padding-bottom: 30px;
 	}
@@ -353,13 +359,13 @@ article img {
 .site-footer {
 	display: flex;
 	align-items: center;
-  background: #eee;
+  background: #424242;
 	text-align: center;
 	font-size: 14px;
 	padding: 20px 0;
 	p {
 		margin: 0;
-		color: #777
+		color: #fff
 	}
 	a {
 		font-weight: normal;

@@ -11,27 +11,18 @@ import {
 
 import PostCard from "./post-card"
 
-const PostMaker = ({
-  data
-}) => ( <
-  section className = "home-posts" >
-  <
-  h2 > Últimas postagens no < strong > Blog < /strong> <span class="icon -right"><RiArrowDownLine/ > < /span></h2 >
-  <
-  div className = "grids col-1 sm-2 lg-3" > {
-    data
-  } <
-  /div> <
-  Link className = "button"
-  to = "/blog" > Ver mais < span class = "icon -right" > < RiArrowRightSLine / > < /span></Link >
-  <
-  /section>
+const PostMaker = ({ data }) => (
+  <section className="home-posts" >
+    {/* <h2> Últimas postagens no <strong> Blog </strong> <span class="icon -right"><RiArrowDownLine /> </span></h2> */}
+    <div className="grids col-1 sm-2 lg-3" > {data} </div>
+    <Link className="button" to="/blog" > Ver mais < span class="icon -right" > < RiArrowRightSLine /> </span></Link >
+  </section>
 )
 
 export default function BlogListHome() {
-  return ( <
-    StaticQuery query = {
-      graphql `
+  return (<
+    StaticQuery query={
+      graphql`
         query {
           allMarkdownRemark(
             sort: { order: DESC, fields: [frontmatter___date] }
@@ -61,26 +52,26 @@ export default function BlogListHome() {
         }`
     }
 
-    render = {
+    render={
       data => {
         const posts = data.allMarkdownRemark.edges
           .filter(edge => !!edge.node.frontmatter.date)
           .map(edge =>
             <
-            PostCard key = {
-              edge.node.id
-            }
-            data = {
-              edge.node
-            }
+              PostCard key={
+                edge.node.id
+              }
+              data={
+                edge.node
+              }
             />
           )
-        return <PostMaker data = {
+        return <PostMaker data={
           posts
         }
         />
       }
     }
-    />
+  />
   )
 }
